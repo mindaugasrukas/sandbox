@@ -28,6 +28,8 @@ There are several ways to solve circular dependency issues:
 
 ## Example
 
+In this PoC example, we will use DI (Uber.fx) and interfaces to solve circular dependency issues.
+
 The original dependency graph:
 Service1 depends on service2 and service3;
 Service2 depends on service3.
