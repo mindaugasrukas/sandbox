@@ -12,16 +12,18 @@ import (
 type (
 	// Service1 is a service.
 	Service1 struct {
-		svc2 service2.Iface
-		svc3 *service3.Service3
+		svc2  *service2.Service2
+		svc2i service2.Iface
+		svc3  *service3.Service3
 	}
 )
 
 // NewService1 creates a new Service1.
-func NewService1(svc2 service2.Iface, svc3 *service3.Service3) *Service1 {
+func NewService1(svc2 *service2.Service2, svc2i service2.Iface, svc3 *service3.Service3) *Service1 {
 	return &Service1{
-		svc2: svc2,
-		svc3: svc3,
+		svc2:  svc2,
+		svc2i: svc2i,
+		svc3:  svc3,
 	}
 }
 

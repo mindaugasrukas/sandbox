@@ -7,8 +7,11 @@ import (
 )
 
 var Module = fx.Provide(
+	NewService2,
 	fx.Annotate(
-		NewService2,
+		func(svc2 *Service2) *Service2 {
+			return svc2
+		},
 		fx.As(new(Iface)),
 		fx.As(new(service3.ServiceA)),
 	),
