@@ -13,7 +13,7 @@ func main() {
 		service1.Module,
 		service2.Module,
 		service3.Module,
-		fx.Invoke(service1.ServerLifetimeHooks),
+		fx.Invoke(service1.ServiceLifecycleHooks),
 	)
 
 	app.Run()

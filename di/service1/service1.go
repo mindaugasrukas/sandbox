@@ -12,13 +12,13 @@ import (
 type (
 	// Service1 is a service.
 	Service1 struct {
-		svc2 *service2.Service2
+		svc2 service2.Iface
 		svc3 *service3.Service3
 	}
 )
 
 // NewService1 creates a new Service1.
-func NewService1(svc2 *service2.Service2, svc3 *service3.Service3) *Service1 {
+func NewService1(svc2 service2.Iface, svc3 *service3.Service3) *Service1 {
 	return &Service1{
 		svc2: svc2,
 		svc3: svc3,
@@ -26,16 +26,16 @@ func NewService1(svc2 *service2.Service2, svc3 *service3.Service3) *Service1 {
 }
 
 func (s *Service1) Start() error {
-	fmt.Println("Service1.Start()")
+	fmt.Printf("Service1.Start() %p\n", s)
 	s.svc2.DoSomething2(s.svc3)
 	return nil
 }
 
-func (s Service1) Stop() {
-	fmt.Println("Service1.Stop()")
+func (s *Service1) Stop() {
+	fmt.Printf("Service1.Stop() %p\n", s)
 }
 
-func ServerLifetimeHooks(
+func ServiceLifecycleHooks(
 	lc fx.Lifecycle,
 	svc *Service1,
 ) {

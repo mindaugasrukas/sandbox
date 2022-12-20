@@ -22,13 +22,13 @@ func NewService3(svc ServiceA) *Service3 {
 	}
 }
 
-func (s Service3) DoSometingWithServiceA() error {
-	fmt.Println("Service3.DoSometingWithServiceA()")
+func (s *Service3) DoSometingWithServiceA() error {
+	fmt.Printf("Service3.DoSometingWithServiceA() %p\n", s)
 	s.svc.DoSomething()
 	return nil
 }
 
-func (s Service3) DoSomething() error {
-	fmt.Println("Service3.DoSomething()")
+func (s *Service3) DoSomething() error {
+	fmt.Printf("Service3.DoSomething() %p\n", s)
 	return nil
 }
