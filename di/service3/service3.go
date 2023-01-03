@@ -24,8 +24,7 @@ func NewService3(svc ServiceA) *Service3 {
 
 func (s *Service3) DoSometingWithServiceA() error {
 	fmt.Printf("Service3.DoSometingWithServiceA() %p\n", s)
-	s.svc.DoSomething()
-	return nil
+	return s.svc.DoSomething()
 }
 
 func (s *Service3) DoSomething() error {

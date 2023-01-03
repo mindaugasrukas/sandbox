@@ -29,8 +29,7 @@ func NewService1(svc2 *service2.Service2, svc2i service2.Iface, svc3 *service3.S
 
 func (s *Service1) Start() error {
 	fmt.Printf("Service1.Start() %p\n", s)
-	s.svc2.DoSomething2(s.svc3)
-	return nil
+	return s.svc2.DoSomething2(s.svc3)
 }
 
 func (s *Service1) Stop() {

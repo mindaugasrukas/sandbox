@@ -33,6 +33,5 @@ func (s *Service2) DoSomething() error {
 
 func (s *Service2) DoSomething2(svc3 *service3.Service3) error {
 	fmt.Printf("Service2.DoSomething2() %p, %d\n", s, s.v)
-	svc3.DoSomething()
-	return nil
+	return svc3.DoSomething()
 }
