@@ -89,23 +89,23 @@ Implicit dependencies:
     % go run ./...
     [Fx] PROVIDE    *service1.Service1 <= sandbox/di/service1.NewService1()
     [Fx] PROVIDE    *service2.Service2 <= sandbox/di/service2.NewService2()
-    [Fx] PROVIDE    service2.Iface <= fx.Annotate(sandbox/di/service2.glob..func1(), fx.As([[service2.Iface] [service3.ServiceA]])
-    [Fx] PROVIDE    service3.ServiceA <= fx.Annotate(sandbox/di/service2.glob..func1(), fx.As([[service2.Iface] [service3.ServiceA]])
+    [Fx] PROVIDE    service2.Iface <= fx.Annotate(sandbox/di/service2.glob..func1(), fx.As([[service2.Iface]])
     [Fx] PROVIDE    *service3.Service3 <= sandbox/di/service3.NewService3()
+    [Fx] PROVIDE    service3.ServiceA <= fx.Annotate(main.main.func1(), fx.As([[service3.ServiceA]])
     [Fx] PROVIDE    fx.Lifecycle <= go.uber.org/fx.New.func1()
     [Fx] PROVIDE    fx.Shutdowner <= go.uber.org/fx.(*App).shutdowner-fm()
     [Fx] PROVIDE    fx.DotGraph <= go.uber.org/fx.(*App).dotGraph-fm()
     [Fx] INVOKE             sandbox/di/service1.ServiceLifecycleHooks()
     Service2.NewService2()
     [Fx] HOOK OnStart               sandbox/di/service1.ServiceLifecycleHooks.func1() executing (caller: sandbox/di/service1.ServiceLifecycleHooks)
-    Service1.Start() 0x14000144500
-    Service2.DoSomething2() 0x1400011abb0, 5577006791947779410
-    Service3.DoSomething() 0x14000113cf0
-    Service3.DoSometingWithServiceA() 0x14000113cf0
-    Service2.DoSomething() 0x1400011abb0, 5577006791947779410
-    [Fx] HOOK OnStart               sandbox/di/service1.ServiceLifecycleHooks.func1() called by sandbox/di/service1.ServiceLifecycleHooks ran successfully in 5.292µs
+    Service1.Start() 0x14000072640
+    Service2.DoSomething2() 0x14000018d30, 5577006791947779410
+    Service3.DoSomething() 0x14000013c60
+    Service3.DoSometingWithServiceA() 0x14000013c60
+    Service2.DoSomething() 0x14000018d30, 5577006791947779410
+    [Fx] HOOK OnStart               sandbox/di/service1.ServiceLifecycleHooks.func1() called by sandbox/di/service1.ServiceLifecycleHooks ran successfully in 8.25µs
     [Fx] RUNNING
     ^C[Fx] INTERRUPT
     [Fx] HOOK OnStop                sandbox/di/service1.ServiceLifecycleHooks.func2() executing (caller: sandbox/di/service1.ServiceLifecycleHooks)
-    Service1.Stop() 0x14000144500
-    [Fx] HOOK OnStop                sandbox/di/service1.ServiceLifecycleHooks.func2() called by sandbox/di/service1.ServiceLifecycleHooks ran successfully in 6.208µs
+    Service1.Stop() 0x14000072640
+    [Fx] HOOK OnStop                sandbox/di/service1.ServiceLifecycleHooks.func2() called by sandbox/di/service1.ServiceLifecycleHooks ran successfully in 7.167µs
