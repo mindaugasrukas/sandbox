@@ -62,11 +62,10 @@ ServiceA interface {
 
 And annotate the DI container entity that implements mentioned interface. That is possible using the `fx.Annotate` feature:
 
-service2/fx.go
+cmd/main.go
 ```
 fx.Annotate(
-    NewService2,
-    fx.As(new(Iface)),
+    service2.NewService2,
     fx.As(new(service3.ServiceA)),
 ),
 ```
