@@ -44,7 +44,7 @@ func ChildWorkflow(ctx workflow.Context, params ChildWorkflowParams) error {
 		}
 		ctxDeploy := workflow.WithActivityOptions(ctx, deployActivityOptions)
 		deployHelmChartActivityParam := DeployActivityParam{
-			Repository: r.Repository,
+			Repo: r,
 		}
 
 		err := workflow.ExecuteActivity(ctxDeploy, Deploy, deployHelmChartActivityParam).Get(ctxDeploy, nil)

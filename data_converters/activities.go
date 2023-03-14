@@ -7,11 +7,11 @@ import (
 
 type (
 	DeployActivityParam struct {
-		Repository IRepository
+		Repo Repository
 	}
 )
 
 func Deploy(ctx context.Context, params DeployActivityParam) error {
-	fmt.Println(params.Repository.Get())
+	fmt.Println(params.Repo.Repository.Get())
 	return nil
 }
