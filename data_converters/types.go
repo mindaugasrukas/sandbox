@@ -70,7 +70,7 @@ func (h *Repository) UnmarshalJSON(data []byte) error {
 	case "*main.FsRepository":
 		h.Repository = &FsRepository{}
 	default:
-		return fmt.Errorf("unknown type: %s", aux.RType)
+		return fmt.Errorf("unknown rtype: %s", aux.RType)
 	}
 	return json.Unmarshal(aux.Repository, &h.Repository)
 }
