@@ -7,7 +7,7 @@ import (
 
 type (
 	DeployActivityParam struct {
-		Repo Repository
+		Repo *Repository
 	}
 )
 
